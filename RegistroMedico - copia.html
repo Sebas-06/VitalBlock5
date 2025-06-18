@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registro Admin</title>
+  <link rel="icon" href="assets/images/logo.ico">
+  <link rel="stylesheet" href="assets/css/designRegisterPyM.css">
+  <link href="https://fonts.cdnfonts.com/css/sunflower-2" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/fira-sans-book" rel="stylesheet">
+  <script src="./assets/scripts/login-register.Validation.js" defer></script>
+</head>
+
+<body>
+  <div class="register-container">
+    <div class="register-card">
+      <div class="image-section">
+        <img src="assets/images/logo.svg" alt="Logo Symbotec" />
+        <a href="LoginMedico.html" class="back-link">Regresar</a>
+      </div>
+
+      <div class="form-section">
+        <h2>Registrar Admin</h2>
+        <form onsubmit="return validarRegistroAdmin()">
+          <label for="nombre">Nombre y Apellidos</label>
+          <input type="text" id="nombre" placeholder="Juan Pedro Quispe Sandoval" required>
+
+          <label for="email">Correo Electrónico</label>
+          <input type="email" id="email" placeholder="ejemplo123@gmail.com" required>
+
+          <label for="password">Contraseña</label>
+          <input type="password" id="password" placeholder="********" required>
+
+          <label for="confirmPassword">Confirmar Contraseña</label>
+          <input type="password" id="confirmPassword" placeholder="********" required>
+
+          <button type="submit" class="btn-save">Guardar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Todos los derechos reservados Symbotec&copy; 2024</p>
+  </footer>
+
+  <script>
+    function validarRegistroAdmin() {
+      const nombre = document.getElementById("nombre").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const confirmPassword = document.getElementById("confirmPassword").value.trim();
+
+      if (!nombre || !email || !password || !confirmPassword) {
+        alert("Por favor, complete todos los campos.");
+        return false;
+      }
+
+      if (password !== confirmPassword) {
+        alert("Las contraseñas no coinciden.");
+        return false;
+      }
+
+      alert("Administrador registrado correctamente.");
+      window.location.href = "LoginMedico.html";
+      return false;
+    }
+  </script>
+</body>
+</html>
